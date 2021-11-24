@@ -1,13 +1,14 @@
-
-import './App.css';
+import Login from './components/Login'
+import './App.css'
+import { Switch, Router } from 'react-router-dom'
 
 function App() {
   return (
-
- <h1>lets build linkedin</h1>
-
-  );
+    <div>
+      <Login />
+      lets build this is awesome!
+    </div>
+  )
 }
 
-
-export default App;
+export default App
