@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 import React from 'react'
+import Leftside from './LeftSide'
+import Rightside from './RightSide'
+import Main from './Main'
 
 const Home = (props) => {
   return (
@@ -18,9 +21,9 @@ const Home = (props) => {
       </Section>
 
       <Layout>
-        <div>left side</div>
-        <div>mid </div>
-        <div>right side</div>
+        <Leftside />
+        <Main />
+        <Rightside />
       </Layout>
     </Container>
   )
@@ -64,20 +67,19 @@ const Section = styled.section`
   }
 `
 const Layout = styled.div`
-display: grid;
-grid-template-areas:"leftside main rightside" ;
-grid-template-columns: minmax(0,5px) minmax(0,12px) minmax(300px,7px);
-column-gap: 25px;
-row-gap: 25px;
-/* grid-template-rows: auto; */
-margin: 25px 0 ;
+  display: grid;
+  grid-template-areas: 'leftside main rightside';
+  grid-template-columns: minmax(0, 5px) minmax(0, 12px) minmax(300px, 7px);
+  column-gap: 25px;
+  row-gap: 25px;
+  /* grid-template-rows: auto; */
+  margin: 25px 0;
 
-@media(max-width: 768px){
-  display: flex;
-  flex-direction: column;
-  padding: 0 5px;
-}
-
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+  }
 `
 
 export default Home
