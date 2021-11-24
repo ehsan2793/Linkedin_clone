@@ -2,79 +2,79 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Header = (props) => {
-    return (
-        <Container>
-            <Contact>
-                <Logo>
-                    <a href='/'>
-                        <img src='/images/home-logo.svg' alt='' />
-                    </a>
-                </Logo>
-                <Search>
-                    <div>
-                        <input type='text' placeholder='Search' />
-                    </div>
-                    <SearchIcon>
-                        <img src='/images/search-icon.svg' alt='' />
-                    </SearchIcon>
-                </Search>
-                <Nav>
-                    <NavlistWrap>
-                        <NavList className='active'>
-                            <a>
-                                <img src='/images/nav-home.svg' alt='' />
-                                <span>Home</span>
-                            </a>
-                        </NavList>
-                        <NavList>
-                            <a>
-                                <img src='/images/nav-network.svg' alt='' />
-                                <span>Network</span>
-                            </a>
-                        </NavList>
-                        <NavList>
-                            <a>
-                                <img src='/images/nav-jobs.svg' alt='' />
-                                <span>Jobs</span>
-                            </a>
-                        </NavList>
-                        <NavList>
-                            <a>
-                                <img src='/images/nav-messaging.svg' alt='' />
-                                <span>Messaging</span>
-                            </a>
-                        </NavList>
-                        <NavList>
-                            <a>
-                                <img src='/images/nav-notifications.svg' alt='' />
-                                <span>Notifications</span>
-                            </a>
-                        </NavList>
-                        <User>
-                            <a>
-                                <img src='/images/user.svg' alt='' />
-                                <span>Me</span>
-                                <img src='/images/down-icon.svg' alt='' />
-                            </a>
+  return (
+    <Container>
+      <Contact>
+        <Logo>
+          <a href='/'>
+            <img src='/images/home-logo.svg' alt='' />
+          </a>
+        </Logo>
+        <Search>
+          <div>
+            <input type='text' placeholder='Search' />
+          </div>
+          <SearchIcon>
+            <img src='/images/search-icon.svg' alt='' />
+          </SearchIcon>
+        </Search>
+        <Nav>
+          <NavlistWrap>
+            <NavList className='active'>
+              <a>
+                <img src='/images/nav-home.svg' alt='' />
+                <span>Home</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-network.svg' alt='' />
+                <span>Network</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-jobs.svg' alt='' />
+                <span>Jobs</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-messaging.svg' alt='' />
+                <span>Messaging</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-notifications.svg' alt='' />
+                <span>Notifications</span>
+              </a>
+            </NavList>
+            <User>
+              <a>
+                <img src='/images/user.svg' alt='' />
+                <span>Me</span>
+                <img src='/images/down-icon.svg' alt='' />
+              </a>
 
-                            <SignOut>
-                                <a>Sign Out</a>
-                            </SignOut>
-                        </User>
-                        <Work>
-                            <a>
-                                <img src='/images/nav-work.svg' alt='' />
-                                <span>
-                                    Work
-                                    <img src='/images/down-icon.svg' alt='' />
-                                </span>
-                            </a>
-                        </Work>
-                    </NavlistWrap>
-                </Nav>
-            </Contact>
-        </Container>
-    )
+              <SignOut>
+                <a>Sign Out</a>
+              </SignOut>
+            </User>
+            <Work>
+              <a>
+                <img src='/images/nav-work.svg' alt='' />
+                <span>
+                  Work
+                  <img src='/images/down-icon.svg' alt='' />
+                </span>
+              </a>
+            </Work>
+          </NavlistWrap>
+        </Nav>
+      </Contact>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -215,6 +215,9 @@ const SignOut = styled.div`
     transition-duration: 200ms;
     text-align:center;
     display: none;
+    @media (max-width: 768px) {
+      top: -45px;
+    }
   `;
 
 const User = styled(NavList)`
