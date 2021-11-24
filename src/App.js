@@ -1,12 +1,17 @@
 import Login from './components/Login'
 import './App.css'
-import { Switch, Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div>
-      <Login />
-      lets build this is awesome!
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Login/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }
