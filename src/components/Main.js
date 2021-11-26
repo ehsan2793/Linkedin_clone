@@ -4,12 +4,8 @@ import React from 'react'
 
 const Main = (props) => {
     return <Container>
-        <>
-
-
-
-            <ShareBox>
-                Share
+        <ShareBox>
+            Share
             <div>
                 <img src="/images/user.svg" alt=""/>
                 <button>Start a post</button>
@@ -25,12 +21,12 @@ const Main = (props) => {
                 </button>
                 <button>
                     <a>
-                    < FcVideoFile/>
+                        < FcVideoFile/>
                     </a>
                     <span>Video</span>
                 </button>
                 <button>
-                    <a> <FcCalendar /></a>
+                    <a> <FcCalendar/></a>
                     <span>Event</span>
                 </button>
                 <button>
@@ -39,24 +35,17 @@ const Main = (props) => {
                 </button>
 
             </div>
-            </ShareBox>
-        </>
-
+        </ShareBox>
     </Container>
 }
 
 const Container = styled.div`
   grid-area: main;
 `
-
-
-
 const ShareBox = styled.div`
-  padding-top:5px;
+  padding-top: 5px;
   text-align: center;
   overflow: hidden;
-  //margin-bottom: 8px;
-  //background-color: #fff;
   border-radius: 5px;
   position: relative;
   border: none;
@@ -80,40 +69,45 @@ const ShareBox = styled.div`
       align-items: center;
       font-weight: 600;
     }
+
     &:first-child {
       display: flex;
       align-items: center;
-      padding:8px 16px 0 16px;
+      padding: 8px 16px 0 16px;
+
       img {
-        width:48px;
-        border-radius:50% ;
+        width: 48px;
+        border-radius: 50%;
         margin: 8px;
       }
+
       button {
-        margin: 4px 0 ;
+        margin: 4px 0;
         flex-grow: 1;
-        border-radius:35px;
+        border-radius: 35px;
         padding-left: 16px;
-        border: 1px solid rgba(0,0,0,0.15);
+        border: 1px solid rgba(0, 0, 0, 0.15);
         background-color: white;
-        text-align:left;
+        text-align: left;
       }
     }
+
     &:nth-child(2) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       padding-bottom: 4px;
-      
+
       button {
         a {
-          font-size:30px;
+          font-size: 30px;
           margin: 0 4px 0 -2px;
         }
+
         span {
-          color:#70b5f9;
+          color: #70b5f9;
         }
-        
+
       }
     }
   }
