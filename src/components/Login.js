@@ -2,31 +2,31 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Login = (props) => {
-  return (
-    <Container>
-      <Nav>
-        <a href='/'>
-          <img src='/images/login-logo.svg' alt='' />
-        </a>
-        <div>
-          <Join>Join now</Join>
-          <SignIn>Sign In</SignIn>
-        </div>
-      </Nav>
-      <Section>
-        <Hero>
-          <h1>Welcome to your professional community</h1>
-          <img src='/images/login-hero.svg' alt='' />
-        </Hero>
-        <Form>
-          <Google>
-            <img src='/images/google.svg' alt='' />
-            Sign in with Google
-          </Google>
-        </Form>
-      </Section>
-    </Container>
-  )
+    return (
+        <Container>
+            <Nav>
+                <a href='/'>
+                    <img src='/images/login-logo.svg' alt=''/>
+                </a>
+                <div>
+                    <Join>Join now</Join>
+                    <SignIn>Sign In</SignIn>
+                </div>
+            </Nav>
+            <Section>
+                <Hero>
+                    <h1>Welcome to your professional community</h1>
+                    <img src='/images/login-hero.svg' alt=''/>
+                </Hero>
+                <Form>
+                    <Google>
+                        <img src='/images/google.svg' alt=''/>
+                        Sign in with Google
+                    </Google>
+                </Form>
+            </Section>
+        </Container>
+    )
 }
 
 const Container = styled.div`
@@ -41,6 +41,7 @@ const Nav = styled.nav`
   position: relative;
   justify-content: space-between;
   flex-wrap: nowrap;
+
   & > a {
     // anything that is inside of the a tag do this to it
     width: 135px;
@@ -58,6 +59,7 @@ const Join = styled.a`
   color: rgba(0, 0, 0, 0.6);
   margin-right: 12px;
   border-radius: 4px;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
     color: rgba(0, 0, 0, 0.9);
@@ -86,7 +88,7 @@ const SignIn = styled.a`
 const Section = styled.section`
   display: flex;
   align-content: start;
-  min-height: 700px;
+  min-height: 700px;    
   padding-bottom: 138px;
   padding-top: 40px;
   padding: 60px 0;
@@ -99,12 +101,13 @@ const Section = styled.section`
 
   @media (max-width: 768px) {
     margin: auto;
-    min-height: 0px;
+    min-height: 0;
   }
 `
 
 const Hero = styled.div`
   width: 100%;
+
   h1 {
     padding-bottom: 0;
     width: 55%;
@@ -119,6 +122,7 @@ const Hero = styled.div`
       line-height: 2;
     }
   }
+
   img {
     /* z-index: -1; */
     width: 700px;
@@ -150,7 +154,7 @@ const Google = styled.button`
   width: 100%;
   border-radius: 28px;
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
-    inset 0 0 0 2px rgb(0 0 0 /0%) inset 0 0 0 1px rgb(0 0 0 /0%);
+  inset 0 0 0 2px rgb(0 0 0 /0%) inset 0 0 0 1px rgb(0 0 0 /0%);
   vertical-align: middle;
   z-index: 0;
   transition-duration: 200ms;
