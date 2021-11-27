@@ -58,9 +58,49 @@ const Main = (props) => {
                 </Description>
                 <SharedImg>
                     <a>
-                        <img src="/images/tree.jpg" alt=""/>
+                        <img src="/images/tree.jpg" alt="picture of a tree in jungle"/>
                     </a>
                 </SharedImg>
+                <SocoialCounts>
+
+                    <li>
+                        <button>
+                            <img src={'https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb'}/>
+                            <span>310</span>
+                            <img src={'https://www.userflow.nl/images/Linkedin-Support-Icon-HeartinHand250.png'}
+                                 style={{height: "15px"}}/>
+                            <span>132</span>
+                            <img src={'https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f'}/>
+
+                            <span>75</span>
+                        </button>
+                    </li>
+                    <li>
+                        <a>
+                            5 comments
+                        </a>
+                    </li>
+
+                </SocoialCounts>
+                <SocialAction>
+                    <button>
+                        <img src="https://www.userflow.nl/images/Linkedin-Like-Icon-Thumbup250.png" alt="like button"/>
+                        <span>Like</span>
+                    </button>
+                    <button>
+                        <img src="/images/comment.png" alt="comment image"/>
+                        <span>Comments</span>
+                    </button>
+                    <button>
+                        <img src="/images/share-link.png" alt="comment image"/>
+                        <span>Share</span>
+                    </button>
+                    <button>
+                        <img src="/images/send.png" alt="comment image"/>
+                        <span>Send</span>
+                    </button>
+                </SocialAction>
+
             </Article>
         </div>
     </Container>
@@ -230,17 +270,85 @@ const Description = styled.div`
   text-align: left;
 `;
 const SharedImg = styled.div`
-margin-top: 8px;
+  margin-top: 8px;
   width: 100%;
   display: block;
   position: relative;
   background-color: #f9fafb;
+
   img {
     object-fit: contain;
     width: 100%;
     height: 100%;
   }
-  
+
+
+`;
+
+
+const SocoialCounts = styled.ul`
+  background-color: transparent;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  margin: 0 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9e5df;
+  list-style: none;
+
+  li {
+    margin-right: 5px;
+    font-size: 12px;
+
+    button {
+      border: none;
+      display: flex;
+      background-color: transparent;
+    }
+  }
+
+`;
+
+const SocialAction = styled.div`
+  align-items: center;
+  display: flex;
+  margin: 0;
+  justify-content: space-evenly;
+  min-height: 40px;
+  padding: 4px 8px;
+
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    color: #0a66c2;
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    border-radius:5px;
+
+    &:hover {
+      background: rgba(45, 45, 45, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    img {
+      height: 75%;
+      width: 25%;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
 
 `;
 
