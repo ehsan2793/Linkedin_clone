@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import React from 'react'
+import { connect } from 'react-redux'
 
 const Header = (props) => {
+  console.log(props);
   return (
     <Container>
       <Contact>
@@ -52,9 +54,15 @@ const Header = (props) => {
             </NavList>
             <User>
               <a>
-                <img src='/images/user.svg' alt='' />
-                <span>Me</span>
-                <img src='/images/down-icon.svg' alt='' />
+                {props.user && props.user.photoURL ? (
+                  <img src={props.user.photoURL} alt='' />
+                ) : (
+                  <img src='/images/user.svg' alt='' />
+                )}
+                <span>
+                  Me
+                  <img src='/images/down-icon.svg' alt='' />
+                </span>
               </a>
 
               <SignOut>
@@ -73,7 +81,6 @@ const Header = (props) => {
           </NavlistWrap>
         </Nav>
       </Contact>
-
     </Container>
   )
 }
@@ -204,22 +211,22 @@ const NavList = styled.li`
       }
     }
   }
-  `
+`
 const SignOut = styled.div`
-    position: absolute;
-    top: 45px;
-    background: white;
-    border-radius: 0 0 5px 5px;
-    width: 100px;
-    height: 40px;
-    font-size:16px;
-    transition-duration: 200ms;
-    text-align:center;
-    display: none;
-    @media (max-width: 768px) {
-      top: -45px;
-    }
-  `;
+  position: absolute;
+  top: 45px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 200ms;
+  text-align: center;
+  display: none;
+  @media (max-width: 768px) {
+    top: -41px;
+  }
+`
 
 const User = styled(NavList)`
   a > svg {
@@ -237,19 +244,24 @@ const User = styled(NavList)`
   }
 
   &:hover {
-      ${SignOut} {
-          align-items: center;
-          display: flex;
-          justify-content: center;
-
-
-      }
+    ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
   }
-`;
+`
 
 const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
-`;
+`
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  }
+}
 
-export default Header
+const mapDispatchToProps = (dispatch) => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
