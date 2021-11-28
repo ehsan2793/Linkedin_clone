@@ -16,3 +16,14 @@ export function signInAPI() {
             .catch((err) => alert(err.message))
     }
 }
+
+
+export function getUserAuth() {
+    return (dispatch) => {
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                dispatch(setUser(user))
+            }
+        })
+    }
+}
