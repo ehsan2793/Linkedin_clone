@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { getUserAuth } from './components/actions'
 import { connect } from 'react-redux'
 function App(props) {
+
   useEffect(() => {
     props.getUserAuth()
   }, [])
