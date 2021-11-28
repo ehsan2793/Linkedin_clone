@@ -27,3 +27,16 @@ export function getUserAuth() {
         })
     }
 }
+
+
+export function signOutAPI() {
+    return (dispatch) => {
+        auth.signOut()
+            .then(() => {
+                dispatch(setUser(null))
+            })
+            .catch(err => alert(err.message))
+    }
+
+
+}

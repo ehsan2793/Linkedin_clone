@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import { connect } from 'react-redux'
+import { signOutAPI } from './actions'
 
 const Header = (props) => {
   console.log(props);
@@ -65,7 +66,7 @@ const Header = (props) => {
                 </span>
               </a>
 
-              <SignOut>
+              <SignOut onClick={() => props.singOut()}>
                 <a>Sign Out</a>
               </SignOut>
             </User>
@@ -262,6 +263,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({})
+const mapDispatchToProps = (dispatch) => ({
+  singOut: () => dispatch(signOutAPI())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

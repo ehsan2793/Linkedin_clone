@@ -4,10 +4,12 @@ import React from 'react'
 import Leftside from './LeftSide'
 import Rightside from './RightSide'
 import Main from './Main'
-
+import { Redirect } from 'react-router'
+import { connect } from 'react-redux'
 const Home = (props) => {
   return (
     <Container>
+      {!props.user && <Redirect to='/' />}
       <Content>
         <Section>
           <h5>
@@ -80,5 +82,10 @@ const Layout = styled.div`
     padding: 0 5px;
   }
 `;
+const mapStateToProps = state => {
+  return {
+    user: state.userState.user
+  }
+}
 
-export default Home
+export default connect(mapStateToProps)(Home)
