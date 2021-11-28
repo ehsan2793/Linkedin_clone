@@ -1,33 +1,34 @@
 import styled from 'styled-components'
 import React from 'react'
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { signInAPI } from './actions/index'
 
 const Login = (props) => {
-    return (
-        <Container>
-            <Nav>
-                <a href='/'>
-                    <img src='/images/login-logo.svg' alt=''/>
-                </a>
-                <div>
-                    <Join>Join now</Join>
-                    <SignIn>Sign In</SignIn>
-                </div>
-            </Nav>
-            <Section>
-                <Hero>
-                    <h1>Welcome to your professional community</h1>
-                    <img src='/images/login-hero.svg' alt=''/>
-                </Hero>
-                <Form>
-                    <Google>
-                        <img src='/images/google.svg' alt=''/>
-                        Sign in with Google
-                    </Google>
-                </Form>
-            </Section>
-        </Container>
-    )
+  return (
+    <Container>
+      <Nav>
+        <a href='/'>
+          <img src='/images/login-logo.svg' alt='' />
+        </a>
+        <div>
+          <Join>Join now</Join>
+          <SignIn>Sign In</SignIn>
+        </div>
+      </Nav>
+      <Section>
+        <Hero>
+          <h1>Welcome to your professional community</h1>
+          <img src='/images/login-hero.svg' alt='' />
+        </Hero>
+        <Form>
+          <Google>
+            <img src='/images/google.svg' alt='' />
+            Sign in with Google
+          </Google>
+        </Form>
+      </Section>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -168,10 +169,12 @@ const Google = styled.button`
   }
 `
 const mapStateToProps = (state) => {
-    return {
+  return {
 
-    }
+  }
 }
 
-const mapDispatchToProps = (dispatch) => ({})
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInAPI())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
