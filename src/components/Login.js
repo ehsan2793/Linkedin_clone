@@ -1,15 +1,17 @@
 import styled from 'styled-components'
 import React from 'react'
-import { connect } from "react-redux";
-import { signInAPI } from './actions/index'
+import { connect } from 'react-redux'
+import { signInAPI } from './actions'
+import { Redirect } from 'react-router'
 
 const Login = (props) => {
-  console.log(props);
+  console.log("==>", props);
   return (
     <Container>
+      {props.user && <Redirect to='/home' />}
       <Nav>
         <a href='/'>
-          <img src='/images/login-logo.svg' alt='' />
+          <img src='/images/login-logo.svg' alt='logo' />
         </a>
         <div>
           <Join>Join now</Join>
@@ -19,11 +21,11 @@ const Login = (props) => {
       <Section>
         <Hero>
           <h1>Welcome to your professional community</h1>
-          <img src='/images/login-hero.svg' alt='' />
+          <img src='/images/login-hero.svg' alt='svg login page' />
         </Hero>
         <Form>
-          <Google onClick={() => props.signIn}>
-            <img src='/images/google.svg' alt='' />
+          <Google onClick={() => props.signIn()}>
+            <img src='/images/google.svg' alt='google' />
             Sign in with Google
           </Google>
         </Form>
@@ -91,7 +93,7 @@ const SignIn = styled.a`
 const Section = styled.section`
   display: flex;
   align-content: start;
-  min-height: 700px;    
+  min-height: 700px;
   padding-bottom: 138px;
   padding-top: 40px;
   padding: 60px 0;
@@ -157,7 +159,7 @@ const Google = styled.button`
   width: 100%;
   border-radius: 28px;
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
-  inset 0 0 0 2px rgb(0 0 0 /0%) inset 0 0 0 1px rgb(0 0 0 /0%);
+    inset 0 0 0 2px rgb(0 0 0 /0%) inset 0 0 0 1px rgb(0 0 0 /0%);
   vertical-align: middle;
   z-index: 0;
   transition-duration: 200ms;
@@ -171,11 +173,11 @@ const Google = styled.button`
 `
 const mapStateToProps = (state) => {
   return {
-
-  }
+    user: state.userState.user
+  };
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  signIn: () => dispatch(signInAPI())
+  signIn: () => dispatch(signInAPI()),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
