@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { signInAPI } from './actions/index'
 
 const Login = (props) => {
+  console.log(props);
   return (
     <Container>
       <Nav>
@@ -21,7 +22,7 @@ const Login = (props) => {
           <img src='/images/login-hero.svg' alt='' />
         </Hero>
         <Form>
-          <Google>
+          <Google onClick={() => props.signIn}>
             <img src='/images/google.svg' alt='' />
             Sign in with Google
           </Google>
