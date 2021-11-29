@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 const Leftside = (props) => {
-  console.log(props.user);
+  console.log(props.user)
   return (
     <Container>
       <ArtCard>
@@ -9,7 +9,9 @@ const Leftside = (props) => {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, {props.user ? props.user.displayName : "there"}</Link>
+            <Link>
+              Welcome, {props.user ? props.user.displayName : 'there'}
+            </Link>
           </a>
           <a>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -21,12 +23,12 @@ const Leftside = (props) => {
               <span>Connections</span>
               <span>Grow your network</span>
             </div>
-            <img src="/images/widget-icon.svg" alt="" />
+            <img src='/images/widget-icon.svg' alt='' />
           </a>
         </Widget>
         <Item>
           <span>
-            <img src="/images/item-icon.svg" alt="" />
+            <img src='/images/item-icon.svg' alt='' />
             My Items
           </span>
         </Item>
@@ -39,7 +41,7 @@ const Leftside = (props) => {
         <a>
           <span>
             Events
-            <img src="/images/plus-icon.svg" alt="" />
+            <img src='/images/plus-icon.svg' alt='' />
           </span>
         </a>
         <a>
@@ -50,12 +52,12 @@ const Leftside = (props) => {
         </a>
       </CommunityCard>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   grid-area: leftside;
-`;
+`
 
 const ArtCard = styled.div`
   text-align: center;
@@ -67,26 +69,26 @@ const ArtCard = styled.div`
   position: relative;
   border: none;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
-`;
+`
 
 const UserInfo = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding: 12px 12px 16px;
   word-wrap: break-word;
   word-break: break-word;
-`;
+`
 
 const CardBackground = styled.div`
-  background: url("/images/card-bg.svg");
+  background: url('/images/card-bg.svg');
   background-position: center;
   background-size: 462px;
   height: 54px;
   margin: -12px -12px 0;
-`;
+`
 
 const Photo = styled.div`
   box-shadow: none;
-  background-image: url("/images/photo.svg");
+  background-image: url('/images/photo.svg');
   width: 72px;
   height: 72px;
   box-sizing: border-box;
@@ -98,14 +100,14 @@ const Photo = styled.div`
   border: 2px solid white;
   margin: -38px auto 12px;
   border-radius: 50%;
-`;
+`
 
 const Link = styled.div`
   font-size: 16px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 600;
-`;
+`
 
 const AddPhotoText = styled.div`
   color: #0a66c2;
@@ -113,7 +115,7 @@ const AddPhotoText = styled.div`
   font-size: 12px;
   line-height: 1.33;
   font-weight: 400;
-`;
+`
 
 const Widget = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -147,7 +149,7 @@ const Widget = styled.div`
   svg {
     color: rgba(0, 0, 0, 1);
   }
-`;
+`
 
 const Item = styled.a`
   border-color: rgba(0, 0, 0, 0.8);
@@ -166,7 +168,7 @@ const Item = styled.a`
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
   }
-`;
+`
 
 const CommunityCard = styled(ArtCard)`
   padding: 8px 0 0;
@@ -195,13 +197,11 @@ const CommunityCard = styled(ArtCard)`
       }
     }
   }
-`;
+`
 
-
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    user: state.userState.user
+    user: state.userState.user,
   }
 }
 
