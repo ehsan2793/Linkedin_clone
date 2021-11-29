@@ -2,66 +2,75 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 const PostModal = (props) => {
     const [editer, setEditer] = useState('')
+    const reset = (e) => {
+        setEditer('')
+        props.handleClose(e)
+    }
+
     return (
-        <Container>
-            <Content>
-                <Header>
-                    <h2>Create a new post</h2>
-                    <button>
-                        <img
-                            style={{ width: '20px', height: '20px' }}
-                            src='/images/close.png'
-                            alt=''
-                        />
-                    </button>
-                </Header>
-                <SharedContent>
-                    <UserInfo>
-                        <img src='/images/user.svg' alt='' />
-                        <span>Name</span>
-                    </UserInfo>
-                    <Editor>
-                        <textarea
-                            value={editer}
-                            onChange={(e) => setEditer(e.target.value)}
-                            placeholder='What do want to say?'
-                            autoFocus={true}
-                        ></textarea>
-                    </Editor>
+        <>
+            {props.showModel === 'open' &&
+                <Container>
+                    <Content>
+                        <Header>
+                            <h2>Create a new post</h2>
+                            <button onClick={(event) => reset(event)}>
+                                <img
+                                    style={{ width: '20px', height: '20px' }}
+                                    src='/images/close.png'
+                                    alt=''
+                                />
+                            </button>
+                        </Header>
+                        <SharedContent>
+                            <UserInfo>
+                                <img src='/images/user.svg' alt='' />
+                                <span>Name</span>
+                            </UserInfo>
+                            <Editor>
+                                <textarea
+                                    value={editer}
+                                    onChange={(e) => setEditer(e.target.value)}
+                                    placeholder='What do want to say?'
+                                    autoFocus={true}
+                                ></textarea>
+                            </Editor>
 
-                </SharedContent>
-                <SharedCreation>
-                    <AttachAssets>
-                        <AssetButton>
-                            <img
-                                src='/images/image-upload.png'
-                                style={{ height: '32px' }}
-                                alt='picture_share'
-                            />
-                        </AssetButton>
-                        <AssetButton>
-                            <img
-                                src='/images/video-upload.png'
-                                style={{ height: '32px' }}
-                                alt='viedo_share'
-                            />
-                        </AssetButton>
-                    </AttachAssets>
+                        </SharedContent>
+                        <SharedCreation>
+                            <AttachAssets>
+                                <AssetButton>
+                                    <img
+                                        src='/images/image-upload.png'
+                                        style={{ height: '32px' }}
+                                        alt='picture_share'
+                                    />
+                                </AssetButton>
+                                <AssetButton>
+                                    <img
+                                        src='/images/video-upload.png'
+                                        style={{ height: '32px' }}
+                                        alt='viedo_share'
+                                    />
+                                </AssetButton>
+                            </AttachAssets>
 
-                    <SharedComment>
-                        <AssetButton>
-                            <img
-                                src='/images/comments.png'
-                                style={{ height: '32px' }}
-                                alt='viedo_share'
-                            />
-                            Anyone
-                        </AssetButton>
-                    </SharedComment>
-                    <PostButton>Post</PostButton>
-                </SharedCreation>
-            </Content>
-        </Container>
+                            <SharedComment>
+                                <AssetButton>
+                                    <img
+                                        src='/images/comments.png'
+                                        style={{ height: '32px' }}
+                                        alt='viedo_share'
+                                    />
+                                    Anyone
+                                </AssetButton>
+                            </SharedComment>
+                            <PostButton>Post</PostButton>
+                        </SharedCreation>
+                    </Content>
+                </Container>
+            }
+        </>
     )
 }
 

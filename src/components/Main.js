@@ -1,16 +1,37 @@
 import styled from 'styled-components'
 import { FcPicture, FcVideoFile, FcList, FcCalendar } from 'react-icons/fc'
 import { IoEllipsisHorizontal } from 'react-icons/io5'
-import React from 'react'
+import React, { useState } from 'react'
 import PostModal from './PostModal'
 const Main = (props) => {
+  const [showModel, setShowModel] = useState("close")
+
+
+  const handleClose = (e) => {
+    e.preventDefault()
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    switch (showModel) {
+      case 'open':
+        setShowModel('close');
+        break;
+      case 'close':
+        setShowModel('open');
+        break;
+
+      default:
+        setShowModel('close');
+        break;
+    }
+  }
   return (
     <Container>
       <ShareBox>
         Share
         <div>
           <img src='/images/user.svg' alt='' />
-          <button>Start a post</button>
+          <button onClick={handleClose}>Start a post</button>
         </div>
         <div>
           <button>
@@ -115,7 +136,7 @@ const Main = (props) => {
           </SocialAction>
         </Article>
       </div>
-      <PostModal />
+      <PostModal showModel={showModel} handleClose={handleClose} />
     </Container>
   )
 }
